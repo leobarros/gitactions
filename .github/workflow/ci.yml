@@ -1,0 +1,22 @@
+name: App em flask
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Action Checkout
+        uses: action/checkout@v2
+
+      - name: Install python 3.9
+        uses: action/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install modules
+        run: pip3 install -r requirements.txt
